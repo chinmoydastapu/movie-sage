@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer";
 
 function MainLayout () {
     return (
-        <div>
+        <div className="bg-[#020d18]">
             <HeaderNav />
             <Outlet />
             <Footer />
