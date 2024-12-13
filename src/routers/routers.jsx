@@ -5,6 +5,8 @@ import News from '../components/News/News';
 import About from '../components/About/About';
 import PageError from '../components/PageError/PageError';
 import MainLayout from '../layouts/MainLayout';
+import Login from '../components/Login/Login';
+import Signup from '../components/Signup/Signup';
 
 const router = createBrowserRouter([
     {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About />
+            },
+            {
+                path: '/login',
+                element: <Login />
+            },
+            {
+                path: '/signup',
+                element: <Signup />
             }
         ]
     },
