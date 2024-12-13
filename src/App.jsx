@@ -1,9 +1,12 @@
 import { RouterProvider } from "react-router-dom"
 import router from "./routers/routers"
+import DataLoadContext from "./contexts/DataLoadContext"
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <DataLoadContext>
+      <RouterProvider router={router} />
+    </DataLoadContext>
   )
 }
 
