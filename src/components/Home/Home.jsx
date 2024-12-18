@@ -1,8 +1,10 @@
+import HeadingBanner from "./HeadingBanner";
 
-function Home () {
+
+function Home() {
     return (
         <div>
-            This is home!!
+            <HeadingBanner />
         </div>
     );
 }

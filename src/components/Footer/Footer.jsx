@@ -1,9 +1,9 @@
-import logo from '../../assets/movie-sage-logo.png'
-import gridImage from '../../assets/movie-grid-bg.jpg'
+import logo from '../../assets/movie-sage-logo.png';
+import footerGridImage from '../../assets/movie-grid-footer-bg.jpg';
 
 function Footer() {
     return (
-        <div className='bg-cover relative' style={{ backgroundImage: `url(${gridImage})` }}>
+        <div className='bg-cover bg-center relative' style={{ backgroundImage: `url(${footerGridImage})` }}>
             <div className="absolute inset-0 bg-black opacity-85"></div>
             <footer className="footer text-base-content p-10 relative">
                 <aside>
