@@ -1,5 +1,15 @@
 import gridImage from '../../assets/movie-grid-bg.jpg';
 import SearchMovie from '../SearchMovie/SearchMovie';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+
+const images = [
+    "https://images.pexels.com/photos/1309061/pexels-photo-1309061.jpeg?cs=srgb&dl=bollywood-indian-cinema-movie-posters-1309061.jpg&fm=jpg",
+    "https://i.pinimg.com/736x/0d/cf/b7/0dcfb717925c54c70f1de72d91f4603c.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBlWDSrv9rFG6tTEIgNVgidME5Gffk4Gn_qBtiuJoraXg4JF-7VDgM29vlA6RheZPNnWY&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaZvByrK_CL886IcKawWuXiTcONhG9Tg4ypEVyCulUpzlkG3Zb3WdX-q3i2neVvgCtLfU&usqp=CAU",
+]
 
 function HeadingBanner() {
     return (
@@ -7,7 +17,7 @@ function HeadingBanner() {
             <div className="absolute inset-0 bg-black opacity-85"></div>
             <SearchMovie />
             <div className='relative'>
-                <div className="uppercase font-mono flex justify-end items-center gap-3">
+                <div className="uppercase font-mono flex justify-end items-center gap-3 pb-10">
                     <span>Follow us:</span>
                     <span>
                         <svg
@@ -43,6 +53,21 @@ function HeadingBanner() {
                         </svg>
                     </span>
                 </div>
+                <Swiper
+                    modules={[ Autoplay]}
+                    autoplay={{ delay: 3000 }}
+                    spaceBetween={20}
+                    slidesPerView={'auto'}
+                    loop={true}
+                >
+                    {images.map((image, index) => (
+                        <SwiperSlide key={index}>
+                            <div className="flex justify-center items-center h-96 rounded-xl shadow-lg">
+                                <img src={image} alt="..." className="rounded-xl w-full h-96" />
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
         </div>
     );
