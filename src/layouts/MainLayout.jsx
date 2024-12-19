@@ -4,19 +4,17 @@ import Footer from "../components/Footer/Footer";
 import { useContext, useEffect } from "react";
 import { DataLoadingContext } from "../contexts/contextsPrototypes";
 
-function MainLayout () {
-    const {isLoadingState, moviesData} = useContext(DataLoadingContext);
+function MainLayout() {
+    const { isLoadingState, moviesData } = useContext(DataLoadingContext);
 
     useEffect(() => {
         console.log(isLoadingState, moviesData);
-    }, [isLoadingState, moviesData])
+    }, [isLoadingState, moviesData]);
 
     return (
         <div className="bg-[#020d18]">
             <HeaderNav />
-            {
-                isLoadingState ? <>Loading...</> : <Outlet />
-            }
+            <Outlet />
             <Footer />
         </div>
     );
