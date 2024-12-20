@@ -4,41 +4,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { StarIcon } from '@heroicons/react/24/solid';
-
-const carouselData = [
-    {
-        category: ["Sci-fi"],
-        image: "https://images-cdn.ubuy.co.in/63ef0a397f1d781bea0a2464-star-wars-rogue-one-movie-poster.jpg",
-        title: "Rogue One",
-        rating: 7.8
-    },
-    {
-        category: ["Action", "Sci-fi"],
-        image: "https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1500x1500/products/90301/98769/the-creator-original-movie-poster-one-sheet-final-style-buy-now-at-starstills__81077.1697644483.jpg?c=2&imbypass=on",
-        title: "The Creator",
-        rating: 6.7
-    },
-    {
-        category: ["Historical Drama"],
-        image: "https://creativereview.imgix.net/content/uploads/2023/12/Oppenheimer.jpg?auto=compress,format&q=60&w=1263&h=2000",
-        title: "Oppenheimer",
-        rating: 8.3
-    },
-    {
-        category: ["Action", "Thriller"],
-        image: "https://m.media-amazon.com/images/I/91uzbH0vmcL._AC_UF894,1000_QL80_.jpg",
-        title: "Pathan",
-        rating: 5.8
-    },
-    {
-        category: ["Crime", "Action"],
-        image: "https://cdn.prod.website-files.com/6009ec8cda7f305645c9d91b/66a4263d01a185d5ea22eeec_6408f6e7b5811271dc883aa8_batman-min.png",
-        title: "The Batman",
-        rating: 7.8
-    }
-]
+import { useContext } from 'react';
+import { DataLoadingContext } from '../../contexts/contextsPrototypes';
 
 function HeadingBanner() {
+    const { moviesData } = useContext(DataLoadingContext);
+    const recentData = moviesData.filter(movieData => movieData.year > 2013 && movieData.poster);
+    const carouselData = [...recentData].sort(() => 0.5 - Math.random()).slice(0, 20);
+    console.log(carouselData);
+
     return (
         <div className="py-10 px-10 md:px-20 bg-cover relative" style={{ backgroundImage: `url(${gridImage})` }}>
             <div className="absolute inset-0 bg-black opacity-85"></div>
@@ -99,20 +73,22 @@ function HeadingBanner() {
                 >
                     {carouselData.map((data, idx) => (
                         <SwiperSlide key={idx}>
-                            <div className="flex justify-center items-center w-full bg-cover h-[500px] lg:h-96 rounded-xl shadow-lg relative" style={{ backgroundImage: `url(${data.image})` }}>
+                            <div className="flex justify-center items-center w-full bg-cover h-[500px] lg:h-96 rounded-xl shadow-lg relative" style={{ backgroundImage: `url(${data?.poster})` }}>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                                <div className="absolute bottom-10 left-10 flex flex-col gap-2">
-                                    <div className='flex items-center flex-wrap gap-2'>
-                                        {data.category.map((cat, catIdx) => (
-                                            <div key={catIdx} className={`${['bg-primary', 'bg-info', 'bg-error', 'bg-warning', 'bg-success'][Math.round(Math.random() * 4)]} w-fit px-3 py-1 font-semibold text-xs uppercase text-black rounded-md`}>
-                                                {cat}
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className='text-xl font-bold'>{data.title}</div>
-                                    <div className='flex items-center gap-2'>
-                                        <StarIcon className='w-6 h-6 text-yellow-500' />
-                                        <span><span className='text-xl'>{data.rating}</span>/10</span>
+                                <div className='absolute p-5 w-full h-full flex justify-start items-end'>
+                                    <div className="flex flex-col gap-2">
+                                        <div className='flex items-center flex-wrap gap-2'>
+                                            {data?.genres?.map((cat, catIdx) => (
+                                                <div key={catIdx} className={`${['bg-red-500', 'bg-purple-500', 'bg-amber-500', 'bg-pink-500', 'bg-lime-500', 'bg-green-500', 'bg-fuchsia-500', 'bg-teal-500', 'bg-blue-500', 'bg-cyan-500'][Math.round(Math.random() * 9)]} w-fit px-3 py-1 font-semibold text-xs uppercase text-black rounded-md`}>
+                                                    {cat}
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div className='text-xl font-bold'>{data?.title}</div>
+                                        <div className='flex items-center gap-2'>
+                                            <StarIcon className='w-6 h-6 text-yellow-500' />
+                                            <span><span className='text-xl'>{data?.imdb?.rating}</span>/10</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -45,7 +45,7 @@ function SearchMovie() {
     }, []);
 
     return (
-        <div className="pl-4 flex items-center bg-[#0f2133]  rounded-3xl mb-10 relative">
+        <div className="pl-4 md:w-1/2 mx-auto flex items-center bg-[#0f2133]  rounded-3xl mb-10 relative">
             <MagnifyingGlassIcon className="w-6 h-6 mr-5" />
             <input type="text" ref={inputRef} className="flex-grow h-full appearance-none border-none bg-transparent outline-none focus:ring-0" placeholder="Search for a movie or tv show" />
             <button className="btn btn-accent uppercase">Find Out</button>

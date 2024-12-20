@@ -1,14 +1,8 @@
-import { useContext } from "react";
-import { DataLoadingContext } from "../../contexts/contextsPrototypes";
 
-function Movies () {
-    const {isLoadingState} = useContext(DataLoadingContext);
-    
+function Movies () {    
     return (
         <div>
-            {
-                isLoadingState ? <div>Loading...</div> : <div>This is movies</div>
-            }
+            This is movies
         </div>
     );
 }

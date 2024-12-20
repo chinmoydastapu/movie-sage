@@ -30,7 +30,7 @@ function HeaderNav() {
                         </div>
                         <div className="flex justify-end items-center gap-5">
                             <Link to="/login">Log In</Link>
-                            <Link to="/signup" className="btn btn-accent">Sign Up</Link>
+                            <Link to="/signup" className="btn btn-accent btn-outline">Sign Up</Link>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@ function HeaderNav() {
                     <Link to="/news">News</Link>
                     <Link to="/about">About</Link>
                     <Link to="/login">Log In</Link>
-                    <Link to="/signup" className="btn btn-accent w-full text-center">Sign Up</Link>
+                    <Link to="/signup" className="btn btn-accent btn-outline w-full text-center">Sign Up</Link>
                 </div>
                 <div className="absolute top-7 right-10 z-40">
                     {

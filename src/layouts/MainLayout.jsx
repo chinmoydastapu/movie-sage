@@ -3,6 +3,7 @@ import HeaderNav from "../components/Headers/HeaderNav";
 import Footer from "../components/Footer/Footer";
 import { useContext, useEffect } from "react";
 import { DataLoadingContext } from "../contexts/contextsPrototypes";
+import LoaderAnimation from "../components/LottieAnimations/LoaderAnimation";
 
 function MainLayout() {
     const { isLoadingState, moviesData } = useContext(DataLoadingContext);
@@ -12,6 +13,11 @@ function MainLayout() {
     }, [isLoadingState, moviesData]);
 
     return (
+        isLoadingState ?
+        <div className="w-full h-[100vh] flex items-center justify-center">
+            <LoaderAnimation />
+        </div>
+        :
         <div className="bg-[#020d18]">
             <HeaderNav />
             <Outlet />
