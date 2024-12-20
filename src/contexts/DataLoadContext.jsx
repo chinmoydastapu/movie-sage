@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { readMovieReviews } from "../movieReviewsAPI";
+import { readMovieReviews } from "../API/movieReviewsAPI";
 import { DataLoadingContext } from "./contextsPrototypes";
 
 function DataLoadContext({ children }) {
-    const [isLoadingState, setIsLoadingState] = useState(true);
+    const [isAllDataLoading, setIsAllDataLoading] = useState(true);
     const [moviesData, setMoviesData] = useState([]);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ function DataLoadContext({ children }) {
 
                 if (movies) setMoviesData(movies);
             } finally {
-                setIsLoadingState(false);
+                setIsAllDataLoading(false);
             }
         }
 
@@ -21,7 +21,7 @@ function DataLoadContext({ children }) {
     }, []);
 
     return (
-        <DataLoadingContext.Provider value={{ isLoadingState, moviesData }}>
+        <DataLoadingContext.Provider value={{ isAllDataLoading, moviesData }}>
             {children}
         </DataLoadingContext.Provider>
     );

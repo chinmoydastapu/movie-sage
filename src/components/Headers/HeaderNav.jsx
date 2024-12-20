@@ -8,7 +8,7 @@ function HeaderNav() {
     const [toggleMenu, setToggleMenu] = useState(false);
 
     return (
-        <nav className="bg-[#0f2133] uppercase font-mono relative bg-cover bg-bottom" style={{ backgroundImage: `url(${gridImage})` }}>
+        <nav className="bg-[#0f2133] uppercase text-sm relative bg-cover bg-bottom" style={{ backgroundImage: `url(${gridImage})` }}>
             <div className="absolute inset-0 bg-black opacity-85"></div>
             <div className="relative">
                 <div className="flex justify-between items-center relative z-10 px-10 md:px-20">

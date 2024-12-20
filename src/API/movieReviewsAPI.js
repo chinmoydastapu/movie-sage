@@ -44,3 +44,25 @@ export const deleteMovieReview = async (id) => {
 
     return response;
 }
+
+export const readCarouselData = async () => {
+    // This will read the server at http://localhost:4000/carouselData
+    const response = await axios.get(`${URL}/carouselData`);
+
+    if (response.status === 200) {
+        return response.data;
+    } else {
+        return;
+    }
+}
+
+export const readSciFiMovies = async () => {
+    // This will read the server at http://localhost:4000/scifiMovies
+    const response = await axios.get(`${URL}/scifiMovies`);
+
+    if (response.status === 200) {
+        return response.data;
+    } else {
+        return;
+    }
+}
