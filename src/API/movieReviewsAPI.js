@@ -56,13 +56,20 @@ export const readCarouselData = async () => {
     }
 }
 
-export const readSciFiMovies = async () => {
-    // This will read the server at http://localhost:4000/scifiMovies
-    const response = await axios.get(`${URL}/scifiMovies`);
+export const readMoviesByGenre = async (genres) => {
+    // This will read the server at http://localhost:4000/moviesByGenre?genres=ex1,ex2
+    try {
+        const response = await axios.get(`${URL}/moviesByGenre`, {
+            params: { genres: genres.join(',') }
+        });
 
-    if (response.status === 200) {
-        return response.data;
-    } else {
-        return;
+        if(response.status === 200) {
+            return response.data;
+        } else {
+            return;
+        }
+        // console.log('Movies by Genres:', data);
+    } catch (error) {
+        console.error('Error fetching movies by genres:', error.response?.data || error.message);
     }
 }

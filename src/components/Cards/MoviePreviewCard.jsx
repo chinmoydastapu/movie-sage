@@ -6,12 +6,13 @@ function MoviePreviewCard({ data }) {
 
     return (
         <div className="flex justify-center items-center w-full bg-cover h-[500px] md:h-[400px] lg:h-64 rounded-xl shadow-lg overflow-hidden relative" style={{ backgroundImage: `url(${data?.poster})` }} onMouseEnter={() => setIsPreviewCardHovering(true)} onMouseLeave={() => setIsPreviewCardHovering(false)}>
+            <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-all duration-500 ease-linear`}></div>
             <div
-                className={`absolute inset-0 bg-gradient-to-t from-black/80 transition-all duration-500 ease-linear ${isPreviewCardHovering ? 'via-black/80 to-black/80' : 'via-black/40 to-transparent'}`}
+                className={`absolute inset-0 transition-all duration-200 ease-linear ${isPreviewCardHovering ? 'bg-black opacity-90' : 'opacity-0'}`}
             ></div>
-            <div className={`absolute p-5 w-full h-full flex justify-start items-end`}>
+            {isPreviewCardHovering && <EyeIcon className={`absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-6 h-6 text-accent cursor-pointer transition-opacity duration-200 ease-linear ${isPreviewCardHovering ? 'opacity-100 z-10' : 'opacity-0'}`} />}
+            <div className="absolute p-5 w-full h-full flex justify-start items-end transition-opacity duration-200 ease-linear">
                 <div className="flex flex-col gap-2 w-full">
-                    {isPreviewCardHovering && <EyeIcon className="absolute top-5 right-5 w-6 h-6 text-accent cursor-pointer" />}
                     <div className='text-base font-montserrat font-bold'>{data?.title}</div>
                     <div className='flex items-center gap-2'>
                         <StarIcon className='w-5 h-5 text-yellow-500' />

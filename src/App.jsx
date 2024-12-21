@@ -1,14 +1,14 @@
 import { RouterProvider } from "react-router-dom"
 import router from "./routers/routers"
 import DataLoadContext from "./contexts/DataLoadContext"
-import SciFiMoviesLoadContext from "./contexts/SciFiMoviesLoadContext"
+import GrenreDataLoadContext from "./contexts/GenreDataLoadContext"
 
 function App() {
   return (
     <DataLoadContext>
-      <SciFiMoviesLoadContext>
+      <GrenreDataLoadContext>
         <RouterProvider router={router} />
-      </SciFiMoviesLoadContext>
+      </GrenreDataLoadContext>
     </DataLoadContext>
   )
 }
