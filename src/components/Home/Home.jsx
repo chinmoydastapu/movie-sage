@@ -14,12 +14,12 @@ function Home() {
         <CarouselDataLoadContext>
             <HeadingBanner />
             <div className="px-10 md:px-20 py-10 lg:flex items-start gap-10">
-                <div className="w-3/4">
+                <div className="w-full lg:w-3/4">
                     <GenreSection genreData={genreData} genreType={'sci-fi'} />
                     <GenreSection genreData={genreData} genreType={'comedy'} />
                     <GenreSection genreData={genreData} genreType={'horror'} />
                 </div>
-                <div className="w-1/4">
+                <div className="w-full lg:w-1/4">
                     Here goes sidenav things
                 </div>
             </div>

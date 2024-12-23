@@ -1,6 +1,7 @@
 import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
 import LoaderAnimation from "../LottieAnimations/LoaderAnimation";
 import MoviePreviewCard from "../Cards/MoviePreviewCard";
+import { Link } from 'react-router-dom';
 
 function GenreSection({ genreData, genreType }) {
     const { isGenreDataLoading, genreFilteredData } = genreData;
@@ -23,10 +24,10 @@ function GenreSection({ genreData, genreType }) {
     return (
         <div>
             <div className="flex items-baseline gap-3">
-                <h1 className="uppercase text-2xl font-semibold font-montserrat">{genreType} Movies</h1>
+                <h1 className="uppercase text-lg md:text-2xl font-semibold font-montserrat">{genreType} Movies</h1>
                 <div className="flex-grow bg-gray-700 h-[1px]"></div>
                 <div className="flex items-center gap-1 uppercase cursor-pointer hover:text-accent hover:animate-pulse transition-all duration-200 ease-in">
-                    <span>see all</span>
+                    <Link to={`/home/${genreType}`}><span>see all</span></Link>
                     <ChevronDoubleRightIcon className="w-5 h-5" />
                 </div>
             </div>
@@ -36,7 +37,7 @@ function GenreSection({ genreData, genreType }) {
                         <LoaderAnimation />
                     </div>
                     :
-                    <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div className="my-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
                         {
                             specificGenre.sort(() => Math.random() - 0.5).slice(0, 4).map((singleGenreData, idx) => <MoviePreviewCard key={idx} data={singleGenreData} />)
                         }

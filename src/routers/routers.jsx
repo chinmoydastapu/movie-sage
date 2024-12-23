@@ -7,6 +7,7 @@ import PageError from '../components/PageError/PageError';
 import MainLayout from '../layouts/MainLayout';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
+import GenrePage from '../components/Genres/GenrePage';
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: '/home',
                 element: <Home />
+            },
+            {
+                path: '/home/:genreType',
+                element: <GenrePage />
             },
             {
                 path: '/movies',
