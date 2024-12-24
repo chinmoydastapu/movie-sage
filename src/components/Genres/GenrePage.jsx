@@ -4,7 +4,7 @@ import LoaderAnimation from "../LottieAnimations/LoaderAnimation";
 import gridImage from "../../assets/movie-grid-bg.jpg";
 import SearchMovie from "../SearchMovie/SearchMovie";
 import { Link } from "react-router-dom";
-import MoviePreviewCard from "../Cards/MoviePreviewCard";
+import PaginatedSection from "../PaginatedSection/PaginatedSection";
 
 function GenrePage() {
     const { isGenreDataLoading, genreFilteredData, getMoviesByGenre } = useContext(genreDataLoadingContext);
@@ -29,8 +29,6 @@ function GenrePage() {
         );
     }
 
-    console.log(genreData.length);
-
     return (
         <div>
             <div className="h-[50vh] px-10 md:px-20 py-10 bg-cover relative" style={{ backgroundImage: `url(${gridImage})` }}>
@@ -54,11 +52,7 @@ function GenrePage() {
                                 <LoaderAnimation />
                             </div>
                             :
-                            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                                {
-                                    genreData.map((singleData, idx) => <MoviePreviewCard key={idx} data={singleData} />)
-                                }
-                            </div>
+                            <PaginatedSection genreData={genreData} />
                     }
                 </div>
                 <div className="w-full lg:w-1/4">
