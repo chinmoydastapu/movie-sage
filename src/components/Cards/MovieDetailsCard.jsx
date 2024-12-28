@@ -12,8 +12,6 @@ function MovieDetailsCard({ data }) {
     const options = { day: "2-digit", month: "long", year: "numeric" };
     const formattedReleaseDate = date.toLocaleDateString("en-US", options);
 
-    console.log(data);
-
     return (
         <div className="md:flex items-center shadow-inner shadow-gray-700">
             <div className="w-full md:w-2/5">

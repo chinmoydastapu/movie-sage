@@ -24,9 +24,9 @@ function HeaderNav() {
                     <div className="hidden md:flex justify-between items-center flex-grow ml-20 bg-transparent">
                         <div className="flex justify-start items-center gap-8">
                             <Link to="/home">Home</Link>
-                            <Link to="/movies">Movies</Link>
-                            <Link to="/news">News</Link>
-                            <Link to="/about">About</Link>
+                            <Link to="/home/movies">Movies</Link>
+                            <Link to="/home/news">News</Link>
+                            <Link to="/home/about">About</Link>
                         </div>
                         <div className="flex justify-end items-center gap-5">
                             <Link to="/login">Log In</Link>
@@ -37,9 +37,9 @@ function HeaderNav() {
                 {/* Display on small screens */}
                 <div className={`flex flex-col justify-center items-center gap-4 w-full bg-[#0f2133] absolute top-0 z-30 px-5 pb-5 pt-14 ${toggleMenu ? 'left-0' : 'left-[-100%]'} transition-all duration-1000 ease-in-out md:hidden`} onClick={() => setToggleMenu(!toggleMenu)}>
                     <Link to="/home">Home</Link>
-                    <Link to="/movies">Movies</Link>
-                    <Link to="/news">News</Link>
-                    <Link to="/about">About</Link>
+                    <Link to="/home/movies">Movies</Link>
+                    <Link to="/home/news">News</Link>
+                    <Link to="/home/about">About</Link>
                     <Link to="/login">Log In</Link>
                     <Link to="/signup" className="btn btn-accent btn-outline w-full text-center">Sign Up</Link>
                 </div>

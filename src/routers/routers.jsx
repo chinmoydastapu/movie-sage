@@ -27,15 +27,15 @@ const router = createBrowserRouter([
                 element: <GenrePage />
             },
             {
-                path: '/movies',
+                path: '/home/movies',
                 element: <Movies />
             },
             {
-                path: '/news',
+                path: '/home/news',
                 element: <News />
             },
             {
-                path: '/about',
+                path: '/home/about',
                 element: <About />
             },
             {

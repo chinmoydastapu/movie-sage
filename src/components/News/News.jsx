@@ -1,8 +1,9 @@
+import BreadcrumbsBanner from "../Headers/BreadcrumbsBanner";
 
 function News () {
     return (
         <div>
-            This is news page
+            <BreadcrumbsBanner />
         </div>
     );
 }

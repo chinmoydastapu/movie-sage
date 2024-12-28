@@ -4,7 +4,7 @@ import MoviePreviewCard from '../Cards/MoviePreviewCard';
 import { ListBulletIcon, Squares2X2Icon } from '@heroicons/react/24/solid';
 import MovieDetailsCard from '../Cards/MovieDetailsCard';
 
-const PaginatedSection = ({ genreData }) => {
+const PaginatedSection = ({ data }) => {
     const [viewBy, setViewBy] = useState('grid');
     const [currentPage, setCurrentPage] = useState(0);
 
@@ -12,8 +12,8 @@ const PaginatedSection = ({ genreData }) => {
 
     // Calculate the indices for the current page
     const offset = currentPage * itemsPerPage;
-    const currentPageData = genreData.slice(offset, offset + itemsPerPage);
-    const pageCount = Math.ceil(genreData.length / itemsPerPage);
+    const currentPageData = data.slice(offset, offset + itemsPerPage);
+    const pageCount = Math.ceil(data.length / itemsPerPage);
 
     // Handle page click
     const handlePageClick = (event) => {
@@ -23,7 +23,7 @@ const PaginatedSection = ({ genreData }) => {
     return (
         <div>
             <div className='flex justify-between items-baseline gap-3 mb-6'>
-                <p className='text-xl capitalize'>total <span className='text-accent'>{genreData.length}</span> movies found</p>
+                <p className='text-xl capitalize'>total <span className='text-accent'>{data.length}</span> movies found</p>
                 <div className="flex-grow bg-gray-700 h-[1px]"></div>
                 <div className='flex items-center gap-3'>
                     <span className='tooltip tooltip-accent cursor-pointer border border-gray-700' data-tip="View as Grid">

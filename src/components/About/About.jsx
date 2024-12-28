@@ -1,8 +1,9 @@
+import BreadcrumbsBanner from "../Headers/BreadcrumbsBanner";
 
 function About () {
     return (
         <div>
-            This is about page
+            <BreadcrumbsBanner />
         </div>
     );
 }
