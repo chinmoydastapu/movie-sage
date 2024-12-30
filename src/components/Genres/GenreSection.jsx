@@ -1,4 +1,4 @@
-import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
+import { FaAngleDoubleRight } from "react-icons/fa";
 import LoaderAnimation from "../LottieAnimations/LoaderAnimation";
 import MoviePreviewCard from "../Cards/MoviePreviewCard";
 import { Link } from 'react-router-dom';
@@ -28,7 +28,7 @@ function GenreSection({ genreData, genreType }) {
                 <div className="flex-grow bg-gray-700 h-[1px]"></div>
                 <div className="flex items-center gap-1 uppercase cursor-pointer hover:text-accent hover:animate-pulse transition-all duration-200 ease-in">
                     <Link to={`/home/${genreType}`}><span>see all</span></Link>
-                    <ChevronDoubleRightIcon className="w-5 h-5" />
+                    <FaAngleDoubleRight className="w-5 h-5" />
                 </div>
             </div>
             {

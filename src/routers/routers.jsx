@@ -1,4 +1,4 @@
-import {createBrowserRouter} from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Home from '../components/Home/Home';
 import Movies from '../components/Movies/Movies';
 import News from '../components/News/News';
@@ -8,6 +8,8 @@ import MainLayout from '../layouts/MainLayout';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
 import GenrePage from '../components/Genres/GenrePage';
+import SingleMovie from '../components/Movies/SingleMovie';
+import { readSingleMovieReview } from '../API/movieReviewsAPI';
 
 const router = createBrowserRouter([
     {
@@ -29,6 +31,11 @@ const router = createBrowserRouter([
             {
                 path: '/home/movies',
                 element: <Movies />
+            },
+            {
+                path: '/home/movies/:movieId',
+                element: <SingleMovie />,
+                loader: async ({ params }) => await readSingleMovieReview(params.movieId)
             },
             {
                 path: '/home/news',

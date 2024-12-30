@@ -1,4 +1,4 @@
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useEffect, useRef } from "react";
 
 function SearchMovie() {
@@ -46,7 +46,7 @@ function SearchMovie() {
 
     return (
         <div className="pl-4 md:w-1/2 mx-auto flex items-center bg-[#0f2133]  rounded-3xl mb-10 relative">
-            <MagnifyingGlassIcon className="w-6 h-6 mr-5" />
+            <HiMagnifyingGlass className="w-6 h-6 mr-5 text-accent" />
             <input type="text" ref={inputRef} className="flex-grow h-full appearance-none border-none bg-transparent outline-none focus:ring-0" placeholder="Search for a movie or tv show" />
             <button className="btn btn-accent btn-outline uppercase">Find Out</button>
         </div>

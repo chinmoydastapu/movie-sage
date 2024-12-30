@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import MoviePreviewCard from '../Cards/MoviePreviewCard';
-import { ListBulletIcon, Squares2X2Icon } from '@heroicons/react/24/solid';
 import MovieDetailsCard from '../Cards/MovieDetailsCard';
+import { MdGridOn } from 'react-icons/md';
+import { TbListDetails } from 'react-icons/tb';
 
 const PaginatedSection = ({ data }) => {
     const [viewBy, setViewBy] = useState('grid');
@@ -27,10 +28,10 @@ const PaginatedSection = ({ data }) => {
                 <div className="flex-grow bg-gray-700 h-[1px]"></div>
                 <div className='flex items-center gap-3'>
                     <span className='tooltip tooltip-accent cursor-pointer border border-gray-700' data-tip="View as Grid">
-                        <Squares2X2Icon className='w-6 h-6' onClick={() => setViewBy('grid')} />
+                        <MdGridOn className={`w-6 h-6 ${viewBy === 'grid' && 'text-accent'}`} onClick={() => setViewBy('grid')} />
                     </span>
                     <span className='tooltip tooltip-accent cursor-pointer border border-gray-700' data-tip="View as List">
-                        <ListBulletIcon className='w-6 h-6' onClick={() => setViewBy('list')} />
+                        <TbListDetails className={`w-6 h-6 ${viewBy !== 'grid' && 'text-accent'}`} onClick={() => setViewBy('list')} />
                     </span>
                 </div>
             </div>
@@ -51,7 +52,7 @@ const PaginatedSection = ({ data }) => {
                 pageRangeDisplayed={3}
                 onPageChange={handlePageClick}
                 containerClassName={"flex justify-center items-center gap-2 mt-6"}
-                pageClassName={"flex items-center justify-center w-8 h-8 rounded-lg cursor-pointer hover:text-accent"}
+                pageClassName={"flex items-center justify-center w-fit h-8 mx-3 rounded-lg cursor-pointer hover:text-accent"}
                 pageLinkClassName={"w-full h-full flex items-center justify-center"}
                 previousClassName={"cursor-pointer hover:text-accent"}
                 nextClassName={"cursor-pointer hover:text-accent"}

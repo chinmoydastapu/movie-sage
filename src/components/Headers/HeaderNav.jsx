@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import { FaBars, FaXmark } from "react-icons/fa6"
 import { Link } from 'react-router-dom';
 import logoImg from '../../assets/movie-sage-logo.png';
 import gridImage from '../../assets/movie-grid-bg.jpg';
@@ -17,7 +17,7 @@ function HeaderNav() {
                     </div>
                     <div onClick={() => setToggleMenu(!toggleMenu)} className="md:hidden">
                         {
-                            !toggleMenu && <Bars3Icon className="h-6 w-6" />
+                            !toggleMenu && <FaBars className="h-6 w-6" />
                         }
                     </div>
                     {/* Display on large screens */}
@@ -45,7 +45,7 @@ function HeaderNav() {
                 </div>
                 <div className="absolute top-7 right-10 z-40">
                     {
-                        toggleMenu && <XMarkIcon className="w-6 h-6" onClick={() => setToggleMenu(!toggleMenu)} />
+                        toggleMenu && <FaXmark className="w-6 h-6" onClick={() => setToggleMenu(!toggleMenu)} />
                     }
                 </div>
             </div>
