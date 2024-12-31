@@ -9,12 +9,13 @@ function SingleMovie() {
     console.log(data);
 
     return (
-        <div className="py-10 px-10 md:px-20 bg-cover relative" style={{ backgroundImage: `url(${gridImage})` }}>
+        <div className="py-32 px-10 md:px-20 bg-contain -translate-y-20 relative" style={{ backgroundImage: `url(${gridImage})` }}>
             <div className="absolute inset-0 bg-black opacity-85"></div>
             <SearchMovie />
-            <div className="relative md:flex items-start">
-                <div className="md:sticky top-10 w-full md:w-[30%] overflow-hidden rounded-md">
+            <div className="relative md:flex items-start pt-16">
+                <div className="md:sticky top-28 w-full md:w-[30%] overflow-hidden rounded-md">
                     <img src={data?.poster} alt="Error Loading Image" className="w-full" />
+                    {/* <button className="btn btn-accent btn-outline uppercase font-bold mt-5 w-full">view full poster</button> */}
                 </div>
                 <div className="w-full md:w-[70%] md:pl-10">
                     <div className="uppercase text-xl md:text-3xl font-bold font-montserrat my-5 md:mt-0">{data?.title} <span className="text-gray-500 text-base md:text-xl">({data?.year})</span>

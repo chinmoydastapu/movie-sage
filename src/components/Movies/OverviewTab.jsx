@@ -1,7 +1,8 @@
 import { FaAngleDoubleRight } from "react-icons/fa";
+import CastProfileCard from "../Cards/CastProfileCard";
 
 function OverviewTab({ data, setActiveTab }) {
-    const {directors, writers, countries, languages, released, runtime} = data;
+    const { cast, directors, writers, countries, languages, released, runtime } = data;
     // release date
     const date = new Date(released);
     const options = { day: "2-digit", month: "long", year: "numeric" };
@@ -12,25 +13,30 @@ function OverviewTab({ data, setActiveTab }) {
     const formattedTime = `${hours}h ${minutes}m`;
 
     return (
-        <div className="md:flex items-start gap-5 text-sm text-gray-400">
-            <div className="w-full md:w-2/3">
-                <p className="text-justify mb-5">{data?.plot}
+        <div className="md:flex items-start gap-10 text-sm text-gray-400">
+            <div className="w-full md:w-2/3 flex flex-col gap-5">
+                <div className="text-justify mb-5">{data?.plot}
                     <span className="text-accent text-xs cursor-pointer ml-2 capitalize hover:animate-pulse"
                         onClick={() => setActiveTab(1)}>see description</span>
-                </p>
-                <div className="flex items-baseline gap-3 mb-5">
-                    <h1 className="uppercase text-sm md:text-base font-semibold">cast & crew</h1>
-                    <div className="flex-grow bg-gray-700 h-[1px]"></div>
-                    <div className="flex items-center gap-1 uppercase cursor-pointer text-accent text-xs hover:animate-pulse">
-                        <span onClick={() => setActiveTab(2)}>full cast & crew</span>
-                        <FaAngleDoubleRight className="w-5 h-5" />
+                </div>
+                <div>
+                    <div className="flex items-baseline gap-3 mb-5">
+                        <h1 className="uppercase text-sm md:text-base font-semibold">cast & crew</h1>
+                        <div className="flex-grow bg-gray-700 h-[1px]"></div>
+                        <div className="flex items-center gap-1 uppercase cursor-pointer text-accent text-xs hover:animate-pulse">
+                            <span onClick={() => setActiveTab(2)} className="hidden md:block">full cast & crew</span>
+                            <FaAngleDoubleRight className="w-5 h-5" />
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3 mb-5">
+                        {cast.length > 0 && cast.map((c, idx) => <CastProfileCard key={idx} profileData={c} /> )}
                     </div>
                 </div>
                 <div className="flex items-baseline gap-3 mb-5">
                     <h1 className="uppercase text-sm md:text-base font-semibold">reviews</h1>
                     <div className="flex-grow bg-gray-700 h-[1px]"></div>
                     <div className="flex items-center gap-1 uppercase cursor-pointer text-accent text-xs hover:animate-pulse">
-                        <span onClick={() => setActiveTab(3)}>all reviews</span>
+                        <span onClick={() => setActiveTab(3)} className="hidden md:block">all reviews</span>
                         <FaAngleDoubleRight className="w-5 h-5" />
                     </div>
                 </div>
@@ -38,11 +44,12 @@ function OverviewTab({ data, setActiveTab }) {
                     <h1 className="uppercase text-sm md:text-base font-semibold">related movies</h1>
                     <div className="flex-grow bg-gray-700 h-[1px]"></div>
                     <div className="flex items-center gap-1 uppercase cursor-pointer text-accent text-xs hover:animate-pulse">
-                        <span onClick={() => setActiveTab(4)}>more related movies</span>
+                        <span onClick={() => setActiveTab(4)} className="hidden md:block">more related movies</span>
                         <FaAngleDoubleRight className="w-5 h-5" />
                     </div>
                 </div>
             </div>
+            {/* sidenav */}
             <div className="w-full md:w-1/3 flex flex-col gap-5">
                 <div>
                     {directors?.length > 0 && <>Directors: <div>{directors?.map((director, idx) => <span key={idx} className="text-accent">{director}{idx < directors.length - 1 && ", "}</span>)}</div></>}

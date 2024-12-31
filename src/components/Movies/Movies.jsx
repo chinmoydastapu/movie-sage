@@ -10,7 +10,7 @@ function Movies() {
     return (
         <div>
             <BreadcrumbsBanner />
-            <div className="px-10 md:px-20 py-10 lg:flex items-start gap-10">
+            <div className="px-10 md:px-20 lg:flex items-start gap-10">
                 <div className="w-full lg:w-1/4">
                     Here sidenav content goes
                 </div>

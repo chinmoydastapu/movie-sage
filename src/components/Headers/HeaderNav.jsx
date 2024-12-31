@@ -2,14 +2,13 @@ import { useState } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6"
 import { Link } from 'react-router-dom';
 import logoImg from '../../assets/movie-sage-logo.png';
-import gridImage from '../../assets/movie-grid-bg.jpg';
+// import gridImage from '../../assets/movie-grid-bg.jpg';
 
 function HeaderNav() {
     const [toggleMenu, setToggleMenu] = useState(false);
 
     return (
-        <nav className="bg-[#0f2133] uppercase text-sm relative bg-cover bg-bottom" style={{ backgroundImage: `url(${gridImage})` }}>
-            <div className="absolute inset-0 bg-black opacity-85"></div>
+        <nav className="uppercase text-sm relative">
             <div className="relative">
                 <div className="flex justify-between items-center relative z-10 px-10 md:px-20">
                     <div>

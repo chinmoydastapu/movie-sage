@@ -17,7 +17,7 @@ function HeadingBanner() {
                 <LoaderAnimation />
             </div>
             :
-            <div className="py-10 px-10 md:px-20 bg-cover relative" style={{ backgroundImage: `url(${gridImage})` }}>
+            <div className="py-32 px-10 md:px-20 bg-cover -translate-y-20 relative" style={{ backgroundImage: `url(${gridImage})` }}>
                 <div className="absolute inset-0 bg-black opacity-85"></div>
                 <SearchMovie />
                 <div className='relative'>

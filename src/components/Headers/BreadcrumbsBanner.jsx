@@ -6,7 +6,7 @@ function BreadcrumbsBanner() {
     const actualGenre = genrePath[genrePath.length - 1];
 
     return (
-        <div className="h-[50vh] px-10 md:px-20 py-10 bg-cover relative" style={{ backgroundImage: `url(${gridImage})` }}>
+        <div className="h-[60vh] px-10 md:px-20 py-32 bg-cover -translate-y-20 relative" style={{ backgroundImage: `url(${gridImage})` }}>
             <div className="absolute inset-0 bg-black opacity-85"></div>
             <SearchMovie />
             <div className="absolute bottom-10 left-[50%] -translate-x-[50%] uppercase">

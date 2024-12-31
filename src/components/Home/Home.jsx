@@ -13,7 +13,7 @@ function Home() {
     return (
         <CarouselDataLoadContext>
             <HeadingBanner />
-            <div className="px-10 md:px-20 py-10 lg:flex items-start gap-10">
+            <div className="px-10 md:px-20 lg:flex items-start gap-10">
                 <div className="w-full lg:w-3/4">
                     <GenreSection genreData={genreData} genreType={'sci-fi'} />
                     <GenreSection genreData={genreData} genreType={'comedy'} />

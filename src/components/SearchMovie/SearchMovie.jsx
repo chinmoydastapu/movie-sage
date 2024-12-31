@@ -45,10 +45,10 @@ function SearchMovie() {
     }, []);
 
     return (
-        <div className="pl-4 md:w-1/2 mx-auto flex items-center bg-[#0f2133]  rounded-3xl mb-10 relative">
+        <div className="pl-4 md:w-1/2 mx-auto flex items-center bg-[#0f2133] rounded-3xl mb-10 py-3 sm:py-0 relative">
             <HiMagnifyingGlass className="w-6 h-6 mr-5 text-accent" />
             <input type="text" ref={inputRef} className="flex-grow h-full appearance-none border-none bg-transparent outline-none focus:ring-0" placeholder="Search for a movie or tv show" />
-            <button className="btn btn-accent btn-outline uppercase">Find Out</button>
+            <button className="btn btn-accent btn-outline uppercase hidden sm:block">Find Out</button>  
         </div>
     );
 }
