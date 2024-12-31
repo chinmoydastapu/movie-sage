@@ -13,9 +13,12 @@ function SingleMovie() {
             <div className="absolute inset-0 bg-black opacity-85"></div>
             <SearchMovie />
             <div className="relative md:flex items-start pt-16">
-                <div className="md:sticky top-28 w-full md:w-[30%] overflow-hidden rounded-md">
-                    <img src={data?.poster} alt="Error Loading Image" className="w-full" />
-                    {/* <button className="btn btn-accent btn-outline uppercase font-bold mt-5 w-full">view full poster</button> */}
+                <div className="relative group md:sticky top-28 w-full md:w-[30%] overflow-hidden rounded-md">
+                    <div className="relative overflow-hidden">
+                        <img src={data?.poster} alt="Error Loading Image" className="w-full transition-transform duration-300 group-hover:scale-110" />
+                        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                    </div>
+                    <button className="absolute bottom-[-50px] left-0 right-0 mx-auto btn btn-accent uppercase font-bold w-fit transition-all duration-300 group-hover:bottom-5">View Full Poster</button>
                 </div>
                 <div className="w-full md:w-[70%] md:pl-10">
                     <div className="uppercase text-xl md:text-3xl font-bold font-montserrat my-5 md:mt-0">{data?.title} <span className="text-gray-500 text-base md:text-xl">({data?.year})</span>

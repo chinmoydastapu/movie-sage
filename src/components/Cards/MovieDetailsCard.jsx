@@ -35,7 +35,7 @@ function MovieDetailsCard({ data }) {
                 </div>
                 <p className="text-gray-400">{shortPlot}</p>
                 <div className="bg-gray-700 h-[1px] my-5"></div>
-                <div className="flex justify-between items-center capitalize">
+                <div className="flex flex-wrap justify-between items-center gap-3 capitalize">
                     <div className="flex items-center gap-2"><FaClock className="w-5 h-5 text-stone-300" />runtime: {formattedTime}</div>
                     <div className="flex items-center gap-2"><FaCalendarAlt className="w-5 h-5 text-stone-300" />released: {formattedReleaseDate}</div>
                 </div>

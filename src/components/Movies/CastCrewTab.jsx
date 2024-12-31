@@ -7,7 +7,7 @@ function CastCrewTab({ data }) {
         <div className="text-gray-400 flex flex-col gap-5">
             <div className="mb-5">
                 <p className="capitalize text-sm md:text-base font-bold">cast & crew of</p>
-                <h1 className="capitalize text-lg md:text-2xl font-bold text-accent">{title}</h1>
+                <h1 className="capitalize text-2xl font-bold text-accent">{title}</h1>
             </div>
             <div>
                 <h2 className="uppercase text-sm md:text-base font-bold">directors & producers</h2>
