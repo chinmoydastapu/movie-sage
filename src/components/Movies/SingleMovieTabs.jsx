@@ -6,15 +6,15 @@ import RelatedMovieTab from "./RelatedMovieTab";
 import DescriptionTab from "./DescriptionTab";
 
 const SingleMovieTabs = ({ data }) => {
+    const [activeTab, setActiveTab] = useState(0);
+
     const tabs = [
-        { id: 0, label: "Overview", content: <OverviewTab data={data} /> },
+        { id: 0, label: "Overview", content: <OverviewTab data={data} setActiveTab={setActiveTab} /> },
         { id: 1, label: "Description", content: <DescriptionTab data={data} /> },
         { id: 2, label: "Cast & Crew", content: <CastCrewTab data={data} /> },
         { id: 3, label: "Reviews", content: <ReviewTab data={data} /> },
         { id: 4, label: "Related Movies", content: <RelatedMovieTab data={data} /> },
     ];
-
-    const [activeTab, setActiveTab] = useState(tabs[0].id);
 
     return (
         <div className="w-full mx-auto">
@@ -35,7 +35,7 @@ const SingleMovieTabs = ({ data }) => {
             </div>
 
             {/* Tab Content */}
-            <div className="p-5 bg-[#0f2133] rounded-b-md shadow-sm">
+            <div className="p-5 bg-[#020d18] rounded-b-md shadow-sm">
                 {tabs.find((tab) => tab.id === activeTab)?.content}
             </div>
         </div>

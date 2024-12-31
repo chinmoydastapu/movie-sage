@@ -16,8 +16,10 @@ function SingleMovie() {
                 <div className="md:sticky top-10 w-full md:w-[30%] overflow-hidden rounded-md">
                     <img src={data?.poster} alt="Error Loading Image" className="w-full" />
                 </div>
-                <div className="w-full md:w-[70%] md:pt-10 md:pl-10">
-                    <div className="uppercase text-xl md:text-3xl font-bold font-montserrat mb-5 mt-5 md:mt-0">{data?.title} <span className="text-gray-500 text-base md:text-xl">({data?.year})</span></div>
+                <div className="w-full md:w-[70%] md:pl-10">
+                    <div className="uppercase text-xl md:text-3xl font-bold font-montserrat my-5 md:mt-0">{data?.title} <span className="text-gray-500 text-base md:text-xl">({data?.year})</span>
+                        <div className="capitalize text-gray-400 text-base">{data?.type}</div>
+                    </div>
                     <div className='flex items-center flex-wrap gap-5 mb-5'>
                         {data?.genres?.map((cat, catIdx) => (
                             <div key={catIdx} className={`${['bg-red-500', 'bg-purple-500', 'bg-amber-500', 'bg-pink-500', 'bg-lime-500', 'bg-green-500', 'bg-fuchsia-500', 'bg-teal-500', 'bg-blue-500', 'bg-cyan-500'][Math.round(Math.random() * 9)]} w-fit px-3 py-1 font-semibold text-xs uppercase text-black rounded-md`}>
@@ -41,7 +43,7 @@ function SingleMovie() {
                             <p>wanna rate this?</p> <FaAnglesRight className="w-5 h-5 ml-3" />
                         </div>
                     </div>
-                    <div className="mt-10">
+                    <div className="mt-20">
                         <SingleMovieTabs data={data} />
                     </div>
                 </div>
