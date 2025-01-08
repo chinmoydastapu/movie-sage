@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function SliderCard({ data }) {
     return (
         <Link to={`/home/movies/${data?._id}`}>
-            <div className="flex justify-center items-center w-full bg-cover h-[500px] lg:h-96 rounded-xl shadow-lg relative cursor-pointer hover:text-accent" style={{ backgroundImage: `url(${data?.poster})` }}>
+            <div className="flex justify-center items-center w-full bg-cover h-[500px] lg:h-96 rounded-xl shadow-lg relative cursor-pointer" style={{ backgroundImage: `url(${data?.poster})` }}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 <div className='absolute p-5 w-full h-full flex justify-start items-end'>
                     <div className="flex flex-col gap-2">

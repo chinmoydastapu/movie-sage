@@ -77,6 +77,7 @@ function OverviewTab({ data, setActiveTab }) {
             </div>
             {/* sidenav */}
             <div className="w-full md:w-1/3 flex flex-col gap-5">
+                <div className="bg-gray-700 h-[1px] md:hidden"></div>
                 <div>
                     {directors?.length > 0 && <>Directors: <div>{directors?.map((director, idx) => <span key={idx} className="text-accent">{director}{idx < directors.length - 1 && ", "}</span>)}</div></>}
                 </div>
