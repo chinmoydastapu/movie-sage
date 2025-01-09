@@ -8,7 +8,7 @@ function RelatedMovieTab({ data }) {
     const { isAllDataLoading, moviesData } = useContext(DataLoadingContext);
     const currentGenres = data?.genres || [];
     const relatedMovies = moviesData
-        .filter(movie => movie._id !== data._id && movie?.genres?.some(genre => currentGenres.includes(genre)))
+        .filter(movie => movie._id !== data._id && movie?.genres?.every(genre => currentGenres.includes(genre)))
         .sort(() => Math.random() - 0.5)
         .slice(0, 12);
 

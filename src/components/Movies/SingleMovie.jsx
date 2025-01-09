@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import SearchMovie from "../SearchMovie/SearchMovie";
 import gridImage from "../../assets/movie-grid-bg.jpg";
 import { FaShare, FaHeart, FaStar, FaAnglesRight } from "react-icons/fa6";
+import { IoMdCloseCircle } from "react-icons/io";
 import SingleMovieTabs from "./SingleMovieTabs";
 
 function SingleMovie() {
@@ -18,7 +19,19 @@ function SingleMovie() {
                         <img src={data?.poster} alt="Error Loading Image" className="w-full transition-transform duration-300 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
                     </div>
-                    <button className="absolute bottom-[-50px] left-0 right-0 mx-auto btn btn-accent uppercase font-bold w-fit transition-all duration-300 group-hover:bottom-5">View Full Poster</button>
+                    <button className="absolute bottom-[-50px] left-0 right-0 mx-auto btn btn-accent uppercase font-bold w-fit transition-all duration-300 group-hover:bottom-5" onClick={() => document.getElementById('image_modal').showModal()}>
+                        View Full Poster
+                    </button>
+                    <dialog id="image_modal" className="modal p-0 m-0 bg-transparent flex items-center justify-center">
+                        <div className="relative">
+                            <form method="dialog" className="absolute right-1 top-1">
+                                <button className="bg-transparent border-0">
+                                    <IoMdCloseCircle className="h-8 w-8 text-accent" />
+                                </button>
+                            </form>
+                            <img src={data?.poster} alt="Error Loading Image" className="max-w-full max-h-[80vh] object-contain" />
+                        </div>
+                    </dialog>
                 </div>
                 <div className="w-full md:w-[70%] md:pl-10">
                     <div className="uppercase text-xl md:text-3xl font-bold font-montserrat my-5 md:mt-0">{data?.title} <span className="text-gray-500 text-base md:text-xl">({data?.year})</span>
